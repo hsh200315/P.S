@@ -86,4 +86,3 @@ int main(void)
 	num = dequeue(&a);
 	printf("%d\n",num);
 }
-
