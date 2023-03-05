@@ -18,8 +18,7 @@ int main(void)
 	{
 		num = (int)(a[i]);
 		num -= 96;
-		num = num * pow(31,i);
-		num %= 1234567891;
+		num = (int)(num * pow(31,i))%1234567891;
 		sum += num;
 		sum = sum % 1234567891;
 	}
