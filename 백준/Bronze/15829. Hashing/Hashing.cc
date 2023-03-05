@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #include <string.h>
 //15829
 
@@ -11,16 +10,15 @@ int main(void)
 	scanf("%d",&N);
 	char a[51];
 	scanf("%s",a);
-	
+	int R = 1;
 	int num;
-	long long int sum = 0;
+	long long sum = 0;
 	for(int i = 0; i < N; i++)
 	{
 		num = (int)(a[i]);
-		num -= 96;
-		num = (int)(num * pow(31,i))%1234567891;
-		sum += num;
-		sum = sum % 1234567891;
+		num -= 'a' -1;
+		sum = (sum + num * R)%1234567891;
+		R = R*31;
 	}
 	printf("%lld\n",sum);
 }
