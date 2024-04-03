@@ -7,8 +7,6 @@
 
 using namespace std;
 
-
-
 int main(){
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
@@ -18,25 +16,19 @@ int main(){
 	string S;
 	int total = 0;
 
-	cin >> N;
-	cin >> M;
-
-	cin >> S;
+	cin >> N >> M >> S;
 	
-	int checkNum = 2*N+1;
-	string compare = "";
-	for(int i = 0; i < checkNum; i++){
-		if(i%2 == 0){
-			compare += 'I';
-		}
-		else{
-			compare += 'O';
-		}
-	}
-
-	for(int i = 0; i < M; i++){
-		if(S.substr(i,checkNum) == compare ){
-			total += 1;
+	for(int i = 1; i < S.length(); i++){
+		int count = 0;
+		if(S[i-1] == 'I'){
+			while(S[i] == 'O' && S[i+1] == 'I'){
+				i+=2;
+				count++;
+				if(count == N){
+					count--;
+					total += 1;
+				}
+			}
 		}
 	}
 	cout << total << '\n';
